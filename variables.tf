@@ -56,7 +56,7 @@ variable "private_db_subnet_2" {
 
 // bastion sg
 variable "ssh_locate" {
-  default = "121.134.159.173/32"
-  description = "my ip address"
+  default = "0.0.0.0/0"
+  description = "allow access from anywhere"
   type = string
 }
