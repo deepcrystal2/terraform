@@ -29,7 +29,7 @@ resource "aws_instance" "public_openvpn_template" {
 // 고정 public ip를 위한 openvpn용 eip
 resource "aws_eip" "eip_openvpn" {
   instance = aws_instance.public_openvpn_template.id
-  vpc = true
+  domain = "vpc"
 
   tags = {
     Name = "jy-openvpn-eip"
