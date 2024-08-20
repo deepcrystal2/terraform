@@ -1,16 +1,16 @@
 ## Requirements
 
 Terraform 활용 기본 AWS 3 tier 인프라 구축
+    <사용 서비스>
+    - VPC, Subnet, RouteTable
+    - Internet Gateway, NAT Gateway, EIP
+    - EC2, Application Load Balancer, Target Group, Secrurity Group
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 5.62.0 |
-
-## Modules
-
-No modules.
 
 ## Resources
 

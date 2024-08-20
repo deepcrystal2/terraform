@@ -1,19 +1,19 @@
-// web alb 생성
+// external alb 생성
 
 resource "aws_alb" "application_load_balancer" {
   name = "web-external-alb"
   internal = false
   load_balancer_type = "application"
-  security_groups = [aws_security_group.alb_security_group.id]
+  security_groups = [aws_security_group.ex_alb_security_group.id]
   subnets = [aws_subnet.public_subnet_1.id,aws_subnet.public_subnet_2.id]
   enable_deletion_protection = false
 
   tags = {
-    Name = "jy-alb"
+    Name = "jy-ex-alb"
   }
 }
 
-// alb-tg 생성
+// ex-alb-tg 생성
 resource "aws_alb_target_group" "alb_target_group" {
   name = "jy-alb-tg"
   port = 80
@@ -21,7 +21,7 @@ resource "aws_alb_target_group" "alb_target_group" {
   vpc_id = aws_vpc.vpc_01.id
 }
 
-// alb-tg 연결
+// ex-alb-tg 연결
 resource "aws_alb_target_group_attachment" "web_attachment" {
   target_group_arn = aws_alb_target_group.alb_target_group.arn
   target_id        = aws_instance.private_web_template.id

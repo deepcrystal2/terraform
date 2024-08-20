@@ -1,7 +1,4 @@
 #!/bin/bash
-
-apt update -y
-apt install -y httpd
-systemctl start httpd
-systemctl enable httpd
-echo "<html><body><h1>Application Tier Success</h1></body></html>" > /var/www/html/index.html
+sudo apt update
+sudo apt install -y apache2
+sudo echo "Junyoung Lee" > /var/www/html/index.html

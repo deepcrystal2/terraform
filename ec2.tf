@@ -42,12 +42,27 @@ resource "aws_eip" "eip_openvpn" {
 resource "aws_instance" "private_web_template" {
   ami           = "ami-056a29f2eddc40520"  // Ubuntu Server 22.04 LTS (HVM)
   instance_type = "t2.micro"
-  subnet_id = aws_subnet.private_app_subnet_1.id
+  subnet_id = aws_subnet.private_web_subnet_1.id
   vpc_security_group_ids = [aws_security_group.webserver_security_group.id]
   key_name = "jy-ec2-keypair"
-  user_data = file("./install-apache.sh")
+  user_data = "${file("install-apache.sh")}"
 
   tags = {
     Name = "jy-web-server"
+  }
+}
+
+// was server 생성
+
+resource "aws_instance" "private_app_template" {
+  ami           = "ami-056a29f2eddc40520"  // Ubuntu Server 22.04 LTS (HVM)
+  instance_type = "t2.micro"
+  subnet_id = aws_subnet.private_app_subnet_1.id
+  vpc_security_group_ids = [aws_security_group.wasserver_security_group.id]
+  key_name = "jy-ec2-keypair"
+  user_data = "${file("install-java.sh")}"
+
+  tags = {
+    Name = "jy-was-server"
   }
 }

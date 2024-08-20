@@ -22,10 +22,27 @@ variable "public_subnet_2" {
   type = string
 }
 
+// private subnet cidr block 1 | web-tier
+
+variable "private_web_subnet_1" {
+  default = "10.0.3.0/24"
+  description = "private-web-subnet 1"
+  type = string
+}
+
+// private subnet cidr block 2 | web-tier
+
+variable "private_web_subnet_2" {
+  default = "10.0.4.0/24"
+  description = "private-web-subnet 2"
+  type = string
+}
+
+
 // private subnet cidr block 1 | app-tier
 
 variable "private_app_subnet_1" {
-  default = "10.0.3.0/24"
+  default = "10.0.5.0/24"
   description = "private-app-subnet 1"
   type = string
 }
@@ -33,7 +50,7 @@ variable "private_app_subnet_1" {
 // private subnet cidr block 2 | app-tier
 
 variable "private_app_subnet_2" {
-  default = "10.0.4.0/24"
+  default = "10.0.6.0/24"
   description = "private-app-subnet 2"
   type = string
 }
@@ -41,7 +58,7 @@ variable "private_app_subnet_2" {
 // private subnet cidr block 1 | db-tier
 
 variable "private_db_subnet_1" {
-  default = "10.0.5.0/24"
+  default = "10.0.7.0/24"
   description = "private-db-subnet 1"
   type = string
 }
@@ -49,7 +66,7 @@ variable "private_db_subnet_1" {
 // private subnet cidr block 2 | db-tier
 
 variable "private_db_subnet_2" {
-  default = "10.0.6.0/24"
+  default = "10.0.8.0/24"
   description = "private-db-subnet 2"
   type = string
 }

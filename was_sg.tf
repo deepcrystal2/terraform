@@ -1,26 +1,18 @@
 // web단 sg 생성
 
-resource "aws_security_group" "webserver_security_group" {
+resource "aws_security_group" "wasserver_security_group" {
   vpc_id = aws_vpc.vpc_01.id
-  name = "Web server SG"
-  description = "Enable http/https access(80/443) via ALB & ssh access via bastion sg"
+  name = "WAS server SG"
+  description = "Enable access(8080) via ALB"
 
 
-  // Inbound http/https port open
+  // Inbound 8080 port open
   ingress {
-    description = "http access"
-    from_port = 80
-    to_port = 80
+    description = "springboot access"
+    from_port = 8080
+    to_port = 8080
     protocol = "tcp"
-    security_groups = [aws_security_group.ex_alb_security_group.id]
-  }
-
-  ingress {
-    description = "https access"
-    from_port = 443
-    to_port = 443
-    protocol = "tcp"
-    security_groups = [aws_security_group.ex_alb_security_group.id]
+    security_groups = [aws_security_group.in_nlb_security_group.id]
   }
 
   ingress {
@@ -48,6 +40,6 @@ resource "aws_security_group" "webserver_security_group" {
   }
 
   tags = {
-    Name = "jy-web-server-sg"
+    Name = "jy-was-server-sg"
   }
 }

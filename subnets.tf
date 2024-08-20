@@ -24,6 +24,32 @@ resource "aws_subnet" "public_subnet_2" {
   }
 }
 
+// private subnet 1 | web-tier
+
+resource "aws_subnet" "private_web_subnet_1" {
+  vpc_id = aws_vpc.vpc_01.id
+  cidr_block = var.private_web_subnet_1
+  availability_zone = "ap-northeast-2a"
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name = "jy-private-web-subnet-01"
+  }
+}
+
+// private subnet 2 | web-tier
+
+resource "aws_subnet" "private_web_subnet_2" {
+  vpc_id = aws_vpc.vpc_01.id
+  cidr_block = var.private_web_subnet_2
+  availability_zone = "ap-northeast-2c"
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name = "jy-private-web-subnet-02"
+  }
+}
+
 // private subnet 1 | app-tier
 
 resource "aws_subnet" "private_app_subnet_1" {

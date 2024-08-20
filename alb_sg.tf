@@ -1,8 +1,8 @@
-// alb sg 생성
+// ex alb sg 생성
 
-resource "aws_security_group" "alb_security_group" {
+resource "aws_security_group" "ex_alb_security_group" {
   vpc_id = aws_vpc.vpc_01.id
-  name = "ALB SG"
+  name = "EX-ALB SG"
   description = "Enable http/https access(80/443)"
 
 
@@ -22,6 +22,7 @@ resource "aws_security_group" "alb_security_group" {
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  
 
   // Outbound all open
   egress {
@@ -32,6 +33,6 @@ resource "aws_security_group" "alb_security_group" {
   }
 
   tags = {
-    Name = "jy-alb-sg"
+    Name = "jy-ex-alb-sg"
   }
 }
