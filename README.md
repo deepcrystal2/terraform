@@ -1,6 +1,9 @@
 ## Requirements
 
-No requirements.
+Basic 3 tier-architecture
+  - WEB-WAS-DB
+  - ssh(22) connection via OpenVPN
+  - http/https (80/443) connection via EX-ALB  
 
 ## Providers
 
