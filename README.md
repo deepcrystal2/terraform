@@ -1,15 +1,17 @@
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-Basic AWS 3 tier-architecture
-  - WEB-WAS-DB
-  - ssh(22) connection via OpenVPN
-  - http/https (80/443) connection via EX-ALB  
+Basic AWS 3 tier-architecture without using module
+
+1. WEB-WAS-DB
+2. ssh(22) connection via OpenVPN
+3. http/https (80/443) connection via EX-ALB
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.62.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
 
@@ -82,3 +84,4 @@ No modules.
 |------|-------------|
 | <a name="output_alb_dns_name"></a> [alb\_dns\_name](#output\_alb\_dns\_name) | DNS name of ALB |
 | <a name="output_openvpn_public_ip"></a> [openvpn\_public\_ip](#output\_openvpn\_public\_ip) | public ip of openvpn |
+<!-- END_TF_DOCS -->
