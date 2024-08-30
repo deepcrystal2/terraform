@@ -7,6 +7,10 @@ Basic AWS 3 tier-architecture without using module
 2. ssh(22) connection via OpenVPN
 3. http/https (80/443) connection via EX-ALB
 
+### Architecture
+
+![](https://github.com/deepcrystal2/terraform_3-tier_basic/blob/main/3-tier-architecture.drawio.png)
+
 ## Providers
 
 | Name | Version |
